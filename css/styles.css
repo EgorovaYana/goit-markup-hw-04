@@ -12,8 +12,6 @@
 
   --main-bg-color: #fff;
 
-  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
   --main-font-family: 'Roboto', sans-serif;
   --sub-font-family: 'Raleway', sans-serif;
 }
@@ -108,6 +106,8 @@ img {
 }
 .header {
   border-bottom: 1px solid var(--fourth-brand-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 .header .container {
   display: flex;
@@ -128,7 +128,7 @@ img {
   color: var(--first-brand-color);
   padding: 24px 0;
   display: block;
-  transition: color var(--transition);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-menu-link:hover,
 .nav-menu-link:focus {
@@ -150,7 +150,7 @@ img {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
-  transition: color var(--transition);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-address-link:hover,
 .header-address-link:focus {
@@ -210,7 +210,7 @@ img {
   border-radius: 4px;
   display: block;
   min-width: 169px;
-  transition: background-color var(--transition);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-btn:hover,
 .hero-btn:focus {
@@ -279,13 +279,22 @@ img {
   gap: 24px;
 }
 .social-item {
-  background-color: var(--second-brand-color);
   width: 40px;
   height: 40px;
+}
+.social-item-link {
+  background-color: var(--second-brand-color);
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-item-link:hover,
+.social-item-link:focus {
+  background-color: var(--fifth-brand-color);
 }
 .social-item-icon {
   fill: var(--third-brand-color);
@@ -298,6 +307,7 @@ img {
 }
 .footer .container {
   display: flex;
+  align-items: baseline;
 }
 .footer .logo {
   margin-bottom: 16px;
@@ -316,6 +326,7 @@ img {
 .footer-box-text {
   margin-bottom: 16px;
   color: var(--sub-text-color);
+  font-weight: 500;
 }
 .social-list.footer-social-list {
   gap: 16px;
@@ -338,8 +349,10 @@ img {
   border: none;
   border: 1px solid var(--fourth-brand-color);
   border-radius: 4px;
-  transition: color var(--transition), background-color var(--transition),
-    border var(--transition), box-shadow var(--transition);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .buttons-item-button:hover,
 .buttons-item-button:focus {
@@ -361,6 +374,15 @@ img {
 .portfolio-item-text {
   color: var(--main-text-color);
 }
+.portfolio-link {
+  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-link:hover,
+.portfolio-link:focus {
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
 .buttons-list {
   display: flex;
   justify-content: center;
@@ -376,25 +398,25 @@ img {
   position: relative;
   overflow: hidden;
 }
-.portfolio-overlay {
+.portfolio-overlay-text {
+  color: var(--third-brand-color);
   background-color: var(--second-brand-color);
   position: absolute;
   height: 100%;
+  width: 100%;
   padding: 40px 32px;
   top: 0;
   left: 0;
   transform: translateY(100%);
-  transition: transform var(--transition);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-overlay-text {
-  color: var(--third-brand-color);
-}
-.portfolio-link:hover .portfolio-overlay {
+.portfolio-link:hover .portfolio-overlay-text,
+.portfolio-link:focus .portfolio-overlay-text {
   transform: translateY(0);
 }
 /* CUSTOMERS */
 .customers {
-  padding-top: 113px;
+  padding-top: 120px;
   padding-bottom: 120px;
 }
 .customers-list {
@@ -409,15 +431,16 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border var(--transition);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--sixth-brand-color);
 }
 .customers-icon {
-  fill: var(--sixth-brand-color);
-  transition: fill var(--transition);
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-box:hover,
 .customers-box:focus {
-  border: 1px solid var(--fifth-brand-color);
+  border-color: var(--fifth-brand-color);
 }
 .customers-box:hover .customers-icon,
 .customers-box:focus .customers-icon {
@@ -431,7 +454,8 @@ img {
   background: rgba(46, 47, 66, 0.4);
   top: 0;
   z-index: 2;
-  transition: visibility var(--transition), opacity var(--transition);
+  transition: visibility 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
   position: absolute;
@@ -439,12 +463,13 @@ img {
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   background: var(--seventh-brand-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: transform var(--transition), scale var(--transition);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    scale 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-btn {
   position: absolute;
@@ -459,9 +484,22 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: var(--fifth-brand-color);
+  border: none;
 }
 .modal-btn-svg {
   fill: var(--first-brand-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-btn:hover .modal-btn-svg,
+.modal-btn:focus .modal-btn-svg {
+  fill: var(--sub-text-color);
 }
 .is-hidden {
   visibility: hidden;
